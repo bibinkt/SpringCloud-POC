@@ -41,7 +41,7 @@
    or any other usefull feature.
    -------------------------------------------------
      1) OAth 2.0 implementation
-     2) Circute breaker
+     2) Circuite breaker
      3) Cloude deployment using Docker container
      4) ...
    
