@@ -2,22 +2,23 @@
 
      SPRING CLOUD AND NETFLIX OSS
         
-     Spring Cloud is a new project in the spring.io family.To a large extent Spring Cloud 1.0 is based on components from Netflix
-     OSS.Spring Cloud integrates the Netflix components in the Spring environment in a very nice way using auto configuration and 
-     convention over configuration
+     Spring Cloud is a new project in the spring.io family.To a large extent Spring Cloud 1.0 is based on 
+     components from Netflix OSS.Spring Cloud integrates the Netflix components in the Spring environment 
+     in a very nice way using auto configuration and convention over configuration
      
-     The aim of this POC is to make you familiarize with some of the essential Spring & Netflix OSS components when it comes to micro-services
-     developemnt & deployment in cloud.
+     The aim of this POC is to make you familiarize with some of the essential Spring & Netflix OSS 
+     components when it comes to micro-services developemnt & deployment in cloud.
      
-     Below tables list out the all the neccessary you will deal with in spring cloud micr-service implementaion . 
+     Below tables list out the all the neccessary you will deal with in spring cloud micr-service 
+     implementaion . 
      
      
      
      Below are the components covered far in this POC
      -------------------------------------------------------------
      
-     Netflix Eureka - Service Discovery Server Netflix Eureka allows microservices to register themselves at runtime
-		                  as they appear in the system landscape.
+     Netflix Eureka - Service Discovery Server Netflix Eureka allows microservices to register themselves 
+                      at runtime as they appear in the system landscape.
 
      Netflix Ribbon - Dynamic Routing and Load Balancer Netflix Ribbon can be used by service consumers to lookup 
                      services at runtime. Ribbon uses the information available in Eureka to locate appropriate 
@@ -35,8 +36,8 @@
      
      The enitire application architecture has been given in below diagram.
      
-     Below are the immediate next steps and pull request are always welcome if you are ready to implement below comp or 
-     any other usefull feature.
+     Below are the immediate next steps and pull request are always welcome if you are ready to implement below 
+     comp or any other usefull feature.
      -------------------------------------------------
      1) OAth 2.0 implementation
      2) Circute breaker
