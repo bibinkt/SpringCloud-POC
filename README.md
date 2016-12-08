@@ -10,8 +10,9 @@
   components when it comes to micro-services development & deployment in cloud.
 
 
-  Below tables list out the all the necessary you will deal with in spring cloud micr-service 
+  Below tables list out the all the necessary comp. you will deal with in spring cloud micro-service 
   implementation . 
+  
   ![image](https://github.com/bibinkt/SpringCloud-POC/blob/master/mapping-table.png)
 
   Below are the components covered far in this POC
