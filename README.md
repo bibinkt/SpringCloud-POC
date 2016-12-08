@@ -10,10 +10,10 @@ server [Eureka], Micro-services [product & price] and a composite service.
 
 As long as you are not changing the default ports -
 
-To access Eureka server : http://localhost:8761/   - This will give you all the other services information 
+To access Eureka server : <b>http://localhost:8761/</b>  - This will give you all the other services information 
 registered with discovery service.
 
-To access  the product service through the edge service : http://localhost:8765/productcomposite/product/1 - 
+To access  the product service through the edge service : <b>http://localhost:8765/productcomposite/product/1</b> - 
 
 
 <h4>SPRING CLOUD AND NETFLIX OSS</h4>
@@ -29,7 +29,7 @@ To access  the product service through the edge service : http://localhost:8765/
   Below tables list out the all the necessary comp. you will deal with in spring cloud micro-service 
   implementation . 
   
-  ![image](https://github.com/bibinkt/SpringCloud-POC/blob/master/mapping-table.png)
+  <img src="https://github.com/bibinkt/SpringCloud-POC/raw/master/mapping-table.png" width="60%" class="changed_alt changed">
 
   Below are the components covered far in this POC
   -------------------------------------------------------------
@@ -43,7 +43,7 @@ To access  the product service through the edge service : http://localhost:8765/
                    spread the requests over the available instances. Ribbon does not run as a separate service 
                    but instead as an embedded component in each service consumer.
 
-  Netflix Zuul -  Edge Server Zuul is (of course) our gatekeeper to the outside world, not allowing any 
+  Netflix Zuul -  Edge Server Zuul is the gatekeeper to the outside world, not allowing any 
                   unauthorized external requests pass through. Zulu also provides a well known entry point to
                   the microservices in the system landscape. Using dynamically allocated ports is convenient to 
                   avoid port conflicts and to minimize administration but it makes it of course harder for any 
