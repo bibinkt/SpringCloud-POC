@@ -1,36 +1,73 @@
 
 
 <h2>SPRING CLOUD AND NETFLIX OSS</h2>
-1.	go to https://nodejs.org/en/download
-2.	Select LTS [current release] to install the dependencies.
-3.	Select your OS and click on installer
 
-<h2>Install JAVA 1.8</h2>
+  Spring Cloud is a new project in the spring.io family. To a large extent Spring Cloud 1.0 is based on 
+  components from Netflix OSS. Spring Cloud integrates the Netflix components in the Spring environment 
+  in a very nice way using auto configuration and convention over configuration
+  
+  The aim of this POC is to make you familiarize with some of the essential Spring & Netflix OSS 
+  components when it comes to micro-services development & deployment in cloud.
 
-<h2>Install Cassandra[NOSQL] V3.9.0</h2>
-1.	go to https://academy.datastax.com/planet-cassandra/cassandra
-2.	Click on installer based on your OS type
 
-<h2>Setup Cassandra[NOSQL] . Execute below script</h2>
-1.	get the DB script from https://github.com/bibinkt/ProductService/blob/master/cassandraScript.txt and execute in your local DB
+  Below tables list out the all the necessary you will deal with in spring cloud micr-service 
+  implementation . 
+  ![image](https://github.com/bibinkt/SpringCloud-POC/blob/master/mapping-table.png)
 
-<h2>For Running UX layer</h2>
-1.	Clone the repo using git clone https://github.com/bibinkt/UXLayer.git
-2.	Run "npm install" to install the dependencies.
-3.	Run "node server.js" to start the local web server
-4.  If your Gateway & microservice server has not configured then plz point this application login flow to inbuild Fake server.
-5.  To point to the fake response server , uncomment line number 62 & 130 from actions/AppActions.js
+  Below are the components covered far in this POC
+  -------------------------------------------------------------
 
-<h2>For Running API gateway</h2>
- 1. Go to https://github.com/bibinkt/nodeAPIGateway/blob/master/README.md
+  Netflix Eureka - Service Discovery Server Netflix Eureka allows microservices to register themselves 
+                   at runtime as they appear in the system landscape.
 
-<h2>For Running Microservices</h2>
- 1. Go to https://github.com/bibinkt/ProductService/blob/master/ReadMe.md
+  Netflix Ribbon - Dynamic Routing and Load Balancer Netflix Ribbon can be used by service consumers to lookup 
+                   services at runtime. Ribbon uses the information available in Eureka to locate appropriate 
+                   service instances. If more than one instance is found, Ribbon will apply load balancing to 
+                   spread the requests over the available instances. Ribbon does not run as a separate service 
+                   but instead as an embedded component in each service consumer.
 
-<h2>If you are biginner in React & Redux then strongly recomand you to go thrugh below tutorial</h2>
+  Netflix Zuul -  Edge Server Zuul is (of course) our gatekeeper to the outside world, not allowing any 
+                  unauthorized external requests pass through. Zulu also provides a well known entry point to
+                  the microservices in the system landscape. Using dynamically allocated ports is convenient to 
+                  avoid port conflicts and to minimize administration but it makes it of course harder for any 
+                  given service consumer. Zuul uses Ribbon to lookup available services and routes the external 
+                  request to an appropriate service instance.
+   
+   The enitire application architecture has been given in below diagram.
+   ![image](https://github.com/bibinkt/SpringCloud-POC/blob/master/SpringCloud.JPEG)
+   
+   Below are the immediate next steps and pull request are always welcome if you are ready to implement below comp 
+   or any other usefull feature.
+   -------------------------------------------------
+     1) OAth 2.0 implementation
+     2) Circute breaker
+     3) Cloude deployment using Docker container
+     4) ...
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+                     
+                     
 
-1. NodeJS -> https://www.youtube.com/watch?v=-u-j7uqU7sI
-2. ReactJS -> https://www.youtube.com/watch?v=-AbaV3nrw6E
-3. Redux -> https://www.youtube.com/watch?v=DiLVAXlVYR0
-4. ES6 [ECMAScript] -> https://www.youtube.com/watch?v=ZJZfIw3P8No
+
+
+
+
+
+
+
+
+
+
+
+
 
