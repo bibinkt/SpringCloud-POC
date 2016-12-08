@@ -1,6 +1,22 @@
+<h4>Steps to install</h4>
+
+1)	Clone the repo. using git clone https://github.com/bibinkt/SpringCloud-POC.git <br>
+2)	cd SpringCloud-POC <br>
+3)	Build-all.bat <br>
+4)	Start-all.bat <br>
+
+The above bat files will build and deploy all the service including  Edge server [Zull & Ribbon] , Discovery 
+server [Eureka], Micro-services [product & price] and a composite service.
+
+As long as you are not changing the default ports -
+
+To access Eureka server : http://localhost:8761/   - This will give you all the other services information 
+registered with discovery service.
+
+To access  the product service through the edge service : http://localhost:8765/productcomposite/product/1 - 
 
 
-<h2>SPRING CLOUD AND NETFLIX OSS</h2>
+<h4>SPRING CLOUD AND NETFLIX OSS</h4>
 
   Spring Cloud is a new project in the spring.io family. To a large extent Spring Cloud 1.0 is based on 
   components from Netflix OSS. Spring Cloud integrates the Netflix components in the Spring environment 
