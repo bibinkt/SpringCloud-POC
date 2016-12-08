@@ -1,6 +1,6 @@
 
 
-     SPRING CLOUD AND NETFLIX OSS
+     <h2> SPRING CLOUD AND NETFLIX OSS </h2>
         
      Spring Cloud is a new project in the spring.io family.To a large extent Spring Cloud 1.0 is based on 
      components from Netflix OSS.Spring Cloud integrates the Netflix components in the Spring environment 
@@ -11,7 +11,8 @@
      
      Below tables list out the all the neccessary you will deal with in spring cloud micr-service 
      implementaion . 
-     
+     ![image](https://github.com/bibinkt/SpringCloud-POC/blob/master/mapping-table.png)
+
      
      
      Below are the components covered far in this POC
@@ -35,7 +36,8 @@
                      
      
      The enitire application architecture has been given in below diagram.
-     
+     ![image](https://github.com/bibinkt/SpringCloud-POC/blob/master/SpringCloud.JPEG)
+
      Below are the immediate next steps and pull request are always welcome if you are ready to implement below 
      comp or any other usefull feature.
      -------------------------------------------------
