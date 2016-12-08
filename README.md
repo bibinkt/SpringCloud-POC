@@ -51,8 +51,10 @@ To access  the product service through the edge service : <b>http://localhost:87
                   request to an appropriate service instance.
    
    The enitire application architecture has been given in below diagram.
-   ![image](https://github.com/bibinkt/SpringCloud-POC/blob/master/SpringCloud.JPEG)
    
+   <img src="https://github.com/bibinkt/SpringCloud-POC/blob/master/SpringCloud.JPEG" width="100%" class="changed_alt changed">
+
+  
    Below are the immediate next steps and pull request are always welcome if you are ready to implement below comp 
    or any other usefull feature.
    -------------------------------------------------
