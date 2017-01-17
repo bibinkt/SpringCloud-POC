@@ -6,8 +6,6 @@ import org.apache.commons.beanutils.DynaBean;
 
 import net.sf.json.JSONObject;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 
 public class ProductAggregated {
 	

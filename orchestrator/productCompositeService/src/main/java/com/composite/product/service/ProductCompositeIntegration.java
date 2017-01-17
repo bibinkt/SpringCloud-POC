@@ -1,11 +1,17 @@
 package com.composite.product.service;
 
+import com.composite.product.model.ProductDetail;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectReader;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
+import com.netflix.ribbon.proxy.annotation.Hystrix;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -28,6 +34,12 @@ public class ProductCompositeIntegration {
 
     private RestTemplate restTemplate = new RestTemplate();
 
+    /*
+	  commandProperties = {@HystrixProperty(name="execution.timeout.enabled",
+	  value="false")}
+	  */
+   
+    @HystrixCommand(fallbackMethod = "getProductFallBack") 
     public JSONObject getProduct(int productId) {
         try {
 
@@ -42,6 +54,24 @@ public class ProductCompositeIntegration {
         LOG.info("GetProduct body: {}",obj);
 
         return obj;
+        } catch (Exception e) {
+            LOG.error("getProduct error", e);
+            throw e;
+        }
+    }
+    
+    public JSONObject getProductFallBack(int productId) {
+        try {
+
+		JSONObject obj = null;
+        LOG.info("Get Produt from fall back.");
+        
+        ProductDetail pp =  new ProductDetail(productId, "Wrong Set", "This is fall back response buddy :-) ");
+
+        obj = JSONObject.fromObject(pp);
+
+        return obj;
+        
         } catch (Exception e) {
             LOG.error("getProduct error", e);
             throw e;
