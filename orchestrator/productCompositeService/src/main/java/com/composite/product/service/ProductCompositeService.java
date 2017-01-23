@@ -15,6 +15,10 @@ import java.util.Date;
 import java.util.List;
 
 import net.sf.json.JSONObject;
+import rx.Observable;
+import rx.exceptions.OnErrorThrowable.OnNextValue;
+import rx.observables.BlockingObservable;
+import rx.schedulers.Schedulers;
 
 import org.apache.commons.beanutils.DynaBean;
 
@@ -32,7 +36,7 @@ public class ProductCompositeService {
     @RequestMapping("/product/{productId}")
     public ProductAggregated getProduct(@PathVariable int productId) {
 
-    	List<JSONObject> prodDetails = new ArrayList<JSONObject>();
+    	/*List<JSONObject> prodDetails = new ArrayList<JSONObject>();
 		    		
     	JSONObject productObj = integration.getProduct(productId);
 		//DynaBean productBasicInfoBean = (DynaBean) JSONObject.toBean(productObj);
@@ -45,8 +49,28 @@ public class ProductCompositeService {
 		prodDetails.add(priceObj);
 		
 		LOG.info("prodDetails --> ",prodDetails);
+		
+		*/
+
+    	LOG.info("Starting the product details call....");
+		//RX java implementation............
+		BlockingObservable<ProductAggregated> pa = getProductDetails(productId);
+		LOG.info("End of the product details call....");
 
     	
-        return new ProductAggregated(productObj,priceObj);
+    	return pa.single();
+    }
+    
+    public BlockingObservable<ProductAggregated> getProductDetails(final int productId) {
+    	Observable<JSONObject> obs1 = Observable.just(integration.getPrice(productId)).observeOn(Schedulers.io()).subscribeOn(Schedulers.io());
+		Observable<JSONObject> obs2 = Observable.just(integration.getProduct(productId)).observeOn(Schedulers.io()).subscribeOn(Schedulers.io());
+        return Observable.zip(
+    			obs1,
+    			obs2,
+    			(productObj,priceObj) -> {
+    				ProductAggregated pp = new ProductAggregated(productObj,priceObj);
+    				return pp; 
+    			}
+    	).toBlocking();
     }
 }

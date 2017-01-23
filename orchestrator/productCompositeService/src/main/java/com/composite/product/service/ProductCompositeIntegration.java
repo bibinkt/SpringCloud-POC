@@ -41,63 +41,67 @@ public class ProductCompositeIntegration {
    
     @HystrixCommand(fallbackMethod = "getProductFallBack") 
     public JSONObject getProduct(int productId) {
-        try {
-
 		JSONObject obj = null;
+
+    	try {
+
         LOG.info("Get Product...");
 
         URI uri = util.getServiceUrl("product", "http://localhost:8081/product");
         String url = uri.toString() + "/product/" + productId;
         LOG.info("GetProduct from URL: {}", url);
-
+        //Thread.sleep(5000);
         obj = restTemplate.getForObject(url, JSONObject.class);
         LOG.info("GetProduct body: {}",obj);
-
-        return obj;
-        } catch (Exception e) {
+    	} catch (Exception e) {
             LOG.error("getProduct error", e);
-            throw e;
         }
+        return obj;
+        
     }
     
     public JSONObject getProductFallBack(int productId) {
-        try {
-
 		JSONObject obj = null;
+
+    	try {
+
         LOG.info("Get Produt from fall back.");
-        
+        //Thread.sleep(5000);
         ProductDetail pp =  new ProductDetail(productId, "Wrong Set", "This is fall back response buddy :-) ");
 
         obj = JSONObject.fromObject(pp);
+        LOG.info("GetProduct body: {}",obj);
 
-        return obj;
         
         } catch (Exception e) {
             LOG.error("getProduct error", e);
-            throw e;
         }
+        return obj;
+
     }
 
 
     public JSONObject getPrice(int productId) {
+		JSONObject obj = null;
+
         try {
             LOG.info("Get PRice...");
-
+            Thread.sleep(5000);
             URI uri = util.getServiceUrl("price", "http://localhost:8081/recommendation");
 
             String url = uri.toString() + "/price?productId=" + productId;
-            LOG.debug("getPrice from URL: {}", url);
-    		JSONObject obj = null;
+            LOG.info("getPrice from URL: {}", url);
 
     	     obj = restTemplate.getForObject(url, JSONObject.class);
-    	     LOG.info("GetProduct body: {}",obj);
+    	     LOG.info("GetPrice body: {}",obj);
 
 
-            return obj;
         } catch (Exception e) {
             LOG.error("getPrice error", e);
-            throw e;
+           // throw e;
         }
+        return obj;
+
     }
 
 }
