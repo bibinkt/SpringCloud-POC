@@ -1,0 +1,41 @@
+rabbitmq:
+  image: rabbitmq:3-management
+  ports:
+    - "5672:5672"
+    - "15672:15672"
+
+discovery:
+  image: bibin/discovery-server
+  ports:
+    - "8761:8761"
+
+pro:
+  image: bibin/productservice
+  links:
+    - discovery
+
+pri:
+  image: bibin/pricingservice
+  links:
+    - discovery
+
+composite:
+  image: bibin/browseapi
+  links:
+    - discovery
+    - rabbitmq
+
+monitor:
+  image: bibin/monitor-dashboard
+  ports:
+    - "7979:7979"
+  links:
+    - composite
+
+edge:
+  image: bibin/edge-server
+  ports:
+    - "443:8765"
+  links:
+    - discovery
+    - composite
