@@ -2,8 +2,8 @@
 
 1)	Clone the repo. using git clone https://github.com/bibinkt/SpringCloud-POC.git <br>
 2)	cd SpringCloud-POC <br>
-3)	Build-all.bat <br>
-4)	Start-all.bat <br>
+3)	Build-all.bat/build-all.sh <br>
+4)	Start-all.bat/"sudo .gradlew bootRun" for each service <br>
 
 The above bat files will build and deploy all the service including  Edge server [Zull & Ribbon] , Discovery 
 server [Eureka], Micro-services [product & price] and a composite service.
@@ -25,11 +25,6 @@ To access  the product service through the edge service : <b>http://localhost:87
   The aim of this POC is to make you familiarize with some of the essential Spring & Netflix OSS 
   components when it comes to micro-services development & deployment in cloud.
 
-
-  Below tables list out the all the necessary comp. you will deal with in spring cloud micro-service 
-  implementation . 
-  
-  <img src="https://github.com/bibinkt/SpringCloud-POC/raw/master/mapping-table.png" width="60%" class="changed_alt changed">
 
   Below are the components covered far in this POC
   -------------------------------------------------------------
